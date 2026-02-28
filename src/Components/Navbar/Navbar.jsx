@@ -26,7 +26,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Right: Auth Buttons (Desktop) */}
+          {/* Right: Auth Buttons - Desktop */}
           <div className="hidden md:flex items-center space-x-4">
             <a 
               href="/login" 
@@ -34,7 +34,7 @@ const Navbar = () => {
             >
               Login
             </a>
-            <div className="w-[1px] h-6 bg-gray-200"></div>
+            <div className="w-px h-6 bg-gray-200"></div>
             <a 
               href="/register" 
               className="bg-[#4640DE] text-white px-6 py-3 font-bold hover:bg-[#3b36bc] transition-all cursor-pointer shadow-md active:scale-95"

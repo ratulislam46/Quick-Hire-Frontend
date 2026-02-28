@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section className="relative bg-[#F8F9FF] py-12 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="flex flex-col lg:flex-row items-center">
-          
+
           {/* Left Content */}
           <div className="w-full lg:w-3/5 text-left space-y-8 z-20">
             <div className="space-y-4">
@@ -17,11 +17,11 @@ const HeroSection = () => {
                   5000+ Jobs
                   {/* Blue Scribble Underline */}
                   <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 358 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 9C118.333 3.33333 353 -1 355 9" stroke="#2161FF" strokeWidth="6" strokeLinecap="round"/>
+                    <path d="M3 9C118.333 3.33333 353 -1 355 9" stroke="#2161FF" strokeWidth="6" strokeLinecap="round" />
                   </svg>
                 </span>
               </h1>
-              
+
               <p className="text-gray-500 text-lg md:text-xl max-w-md font-medium leading-relaxed">
                 Great platform for the job seeker that searching for new career heights and passionate about startups.
               </p>
@@ -32,9 +32,9 @@ const HeroSection = () => {
               {/* Job Title Input */}
               <div className="flex-1 flex items-center px-4 py-3 gap-3 border-b md:border-b-0 md:border-r border-gray-100">
                 <Search className="text-gray-900 w-5 h-5 shrink-0" />
-                <input 
-                  type="text" 
-                  placeholder="Job title or keyword" 
+                <input
+                  type="text"
+                  placeholder="Job title or keyword"
                   className="w-full focus:outline-none text-[#18191C] bg-transparent placeholder:text-gray-400 font-medium"
                 />
               </div>
@@ -43,9 +43,9 @@ const HeroSection = () => {
               <div className="flex-1 flex items-center px-4 py-3 gap-3">
                 <MapPin className="text-gray-900 w-5 h-5 shrink-0" />
                 <div className="flex items-center justify-between w-full">
-                   <input 
-                    type="text" 
-                    placeholder="Florence, Italy" 
+                  <input
+                    type="text"
+                    placeholder="Florence, Italy"
                     className="w-full focus:outline-none text-[#18191C] bg-transparent placeholder:text-gray-400 font-medium"
                   />
                   <ChevronDown className="text-gray-400 w-4 h-4" />
@@ -65,21 +65,23 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Right Content: Image */}
+          {/* Right Content: Image with Background Pattern */}
           <div className="hidden lg:block lg:w-2/5 relative z-10">
             <div className="relative translate-x-10">
-              <img 
+              {/* Main Banner Image */}
+              <img
                 src="/Images/banner.png"
-                alt="Professional Man" 
-                className="w-full h-auto object-contain scale-110" 
+                alt="Professional Man"
+                className="relative z-10 w-full h-auto object-contain scale-110"
               />
-              
-              {/* Decorative Background Pattern (Figma-র মতো গ্রিড বা লাইন) */}
-              <div className="absolute top-0 right-0 -z-10 w-full h-full opacity-20">
-                 <svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="50" y="50" width="300" height="300" stroke="#4640DE" strokeWidth="1"/>
-                    <rect x="80" y="80" width="300" height="300" stroke="#4640DE" strokeWidth="1"/>
-                 </svg>
+
+              {/* Pattern Background Image (The "rekha" image from your path) */}
+              <div className="absolute top-1/2 left-1/5 -translate-x-1/2 -translate-y-1/2 w-[200%] h-[140%] -z-10 pointer-events-none">
+                <img
+                  src="/Images/Pattern.png"
+                  alt=""
+                  className="w-full h-full object-contain"
+                />
               </div>
             </div>
           </div>
