@@ -51,13 +51,13 @@ const Jobs = () => {
 
     const handleViewDetails = (job) => {
         Swal.fire({
-            title: `<span class="text-[#4640DE] font-bold">${job.title}</span>`,
+            title: `<span class="font-bold">${job?.title}</span>`,
             html: `
                 <div class="text-left space-y-3 p-4 border-t border-gray-100">
-                    <p><strong>Company:</strong> ${job.company}</p>
-                    <p><strong>Location:</strong> ${job.location}</p>
-                    <p><strong>Category:</strong> ${job.category}</p>
-                    <p><strong>Description:</strong> ${job.description || 'No description'}</p>
+                    <p><strong>Company:</strong> ${job?.company}</p>
+                    <p><strong>Location:</strong> ${job?.location}</p>
+                    <p><strong>Category:</strong> ${job?.category}</p>
+                    <p><strong>Description:</strong> ${job?.description || 'No description'}</p>
                     <p><small class="text-gray-400">Posted at: ${new Date(job.created_at).toLocaleString()}</small></p>
                 </div>
             `,
@@ -89,13 +89,13 @@ const Jobs = () => {
     );
 
     return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 min-h-screen bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             {/* Header */}
             <header className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
                 <h1 className="text-3xl font-bold text-gray-800 tracking-tight">Manage Jobs</h1>
-                <button 
-                    onClick={() => setIsModalOpen(true)} 
-                    className="w-full sm:w-auto bg-[#4640DE] hover:bg-[#3b36bc] text-white px-8 py-3 rounded-xl font-semibold shadow-lg transition-all active:scale-95"
+                <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="w-full sm:w-auto bg-[#4640DE] hover:bg-[#3b36bc] text-white px-8 py-3 rounded-xl font-semibold shadow-lg transition-all active:scale-95 hover:cursor-pointer"
                 >
                     + Add New Job
                 </button>
@@ -114,21 +114,21 @@ const Jobs = () => {
                                 <th className="p-5 text-sm font-semibold text-gray-600">Actions</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-50">
+                        <tbody className="divide-y divide-gray-100">
                             {jobs?.map((job) => (
                                 <tr key={job._id} className="hover:bg-gray-50 transition-colors">
-                                    <td className="p-5 font-bold text-gray-800">{job.title}</td>
+                                    <td className="p-5 font-bold text-gray-800">{job?.title}</td>
                                     <td className="p-5">
                                         <span className="bg-indigo-50 text-[#4640DE] px-3 py-1 rounded-full text-xs font-bold uppercase">
-                                            {job.category}
+                                            {job?.category}
                                         </span>
                                     </td>
                                     <td className="p-5">
                                         <div className="flex gap-3">
-                                            <button onClick={() => handleViewDetails(job)} className="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all">
+                                            <button onClick={() => handleViewDetails(job)} className="p-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-all hover:cursor-pointer">
                                                 <Eye size={18} />
                                             </button>
-                                            <button onClick={() => handleDelete(job._id)} className="p-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-all">
+                                            <button onClick={() => handleDelete(job._id)} className="p-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-600 hover:text-white transition-all hover:cursor-pointer">
                                                 <Trash2 size={18} />
                                             </button>
                                         </div>
@@ -140,7 +140,11 @@ const Jobs = () => {
                 </div>
             </div>
 
-            <AddJobModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} refreshJobs={fetchJobs} />
+            <AddJobModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+                refreshJobs={fetchJobs}
+            />
         </div>
     );
 };
