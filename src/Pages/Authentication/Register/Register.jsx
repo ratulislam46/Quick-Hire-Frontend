@@ -1,7 +1,11 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+    const { signUp } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = async (event) => {
         event.preventDefault();
@@ -11,20 +15,39 @@ const Register = () => {
         const password = form.password.value;
         const createdAt = new Date().toISOString();
 
-        const newUser = { name, email, password, createdAt };
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters long');
+            return;
+        }
 
         try {
+            const result = await signUp(email, password);
+            console.log('Firebase User Created:', result.user);
+
+            const newUser = {
+                name,
+                email,
+                uid: result.user.uid,
+                role: 'user',
+                createdAt
+            };
+
             const response = await axios.post('http://localhost:5000/register', newUser);
 
             if (response.data.insertedId) {
-                alert('Account Created Successfully!');
+                alert('Account Created & Saved to DB Successfully!');
                 form.reset();
-            } else {
-                alert(response.data.message);
+                navigate('/')
             }
         } catch (error) {
-            console.error('Error registering user:', error);
-            alert('Something went wrong!');
+            console.error('Registration Error:', error.message);
+            if (error.code === 'auth/email-already-in-use') {
+                alert('This email is already registered!');
+            } else if (error.code === 'auth/invalid-email') {
+                alert('Please provide a valid email address!');
+            } else {
+                alert(error.message);
+            }
         }
     };
 
@@ -46,9 +69,9 @@ const Register = () => {
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                        <input name="password" type="password" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4640DE] outline-none transition" placeholder="Create a password" />
+                        <input name="password" type="password" required className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#4640DE] outline-none transition" placeholder="At least 6 characters" />
                     </div>
-                    <button type="submit" className="w-full bg-[#4640DE] text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md">
+                    <button type="submit" className="w-full bg-[#4640DE] text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-colors shadow-md hover:cursor-pointer">
                         Create Account
                     </button>
                 </form>

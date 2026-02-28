@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import NotFound from "../Components/NotFound/NotFound";
+import Jobs from "../Pages/Admin/Job/Jobs";
 
 export const router = createBrowserRouter([
     {
@@ -13,6 +14,10 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path:'jobs-listing',
+                Component: Jobs
             }
         ]
     },

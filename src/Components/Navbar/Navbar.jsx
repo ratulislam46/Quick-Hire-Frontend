@@ -23,6 +23,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-8">
               <a href="/" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Find Jobs</a>
               <a href="/companies" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Browse Companies</a>
+              <a href="/jobs-listing" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Job listings</a>
             </div>
           </div>
 
