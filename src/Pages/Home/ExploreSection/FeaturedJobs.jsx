@@ -12,7 +12,7 @@ const FeaturedJobs = () => {
         location: "Madrid, Spain",
         type: "Full-time",
         categories: ["Marketing", "Design"],
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Revolut_App_Logo.png/600px-Revolut_App_Logo.png" 
+        logo: "/Images/Revolut.png" 
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const FeaturedJobs = () => {
         location: "San Francisco, USA",
         type: "Full-time",
         categories: ["Design", "Business"],
-        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Dropbox_Icon.svg/1200px-Dropbox_Icon.svg.png"
+        logo: "/Images/Dropbox.png"
     },
     {
         id: 3,
@@ -30,7 +30,7 @@ const FeaturedJobs = () => {
         location: "Berlin, Germany",
         type: "Full-time",
         categories: ["Marketing"],
-        logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/fip8n6p6u8x7g6p8k6b1"
+        logo: "/Images/Pitch.png"
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ const FeaturedJobs = () => {
         location: "Remote",
         type: "Full-time",
         categories: ["Design"],
-        logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1508248554/uovmxl2f7yv9qxh0w4v4.png"
+        logo: "/Images/Blinklist.png"
     },
     {
         id: 5,
@@ -48,7 +48,7 @@ const FeaturedJobs = () => {
         location: "New York, USA",
         type: "Full-time",
         categories: ["Marketing", "Design"],
-        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/ClassPass_logo.png"
+        logo: "/Images/ClassPass.png"
     },
     {
         id: 6,
@@ -57,7 +57,7 @@ const FeaturedJobs = () => {
         location: "Australia",
         type: "Full-time",
         categories: ["Design", "Business"],
-        logo: "https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Canva_Logo.png/600px-Canva_Logo.png"
+        logo: "/Images/Canva.png"
     }
 ];
 
