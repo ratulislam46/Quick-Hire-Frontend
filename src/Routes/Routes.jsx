@@ -5,6 +5,7 @@ import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import NotFound from "../Components/NotFound/NotFound";
 import Jobs from "../Pages/Admin/Job/Jobs";
+import UserProfile from "../Pages/Profile/UserProfile";
 
 export const router = createBrowserRouter([
     {
@@ -16,8 +17,12 @@ export const router = createBrowserRouter([
                 Component: Home
             },
             {
-                path:'jobs-listing',
+                path: 'jobs-listing',
                 Component: Jobs
+            },
+            {
+                path: 'profile',
+                Component: UserProfile
             }
         ]
     },

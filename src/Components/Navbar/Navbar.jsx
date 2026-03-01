@@ -44,6 +44,15 @@ const Navbar = () => {
           Job listings
         </a>
       )}
+
+      {user &&
+        <>
+          <a href="/profile" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">
+            Profile
+          </a>
+        </>
+      }
+
     </>
   );
 
