@@ -40,7 +40,7 @@ const FindJobs = () => {
             {/* Job Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {jobs.map((job) => (
-                    <div key={job._id} className="group bg-white rounded-3xl p-6 border border-gray-100 shadow-xl shadow-gray-100/50 hover:shadow-indigo-100 hover:border-indigo-100 transition-all duration-300 flex flex-col justify-between">
+                    <div key={job._id} className="group bg-white p-6 border border-gray-100 shadow-xl shadow-gray-100/50 hover:shadow-indigo-100 hover:border-indigo-100 transition-all duration-300 flex flex-col justify-between">
                         <div>
                             {/* Header: Category & Date */}
                             <div className="flex justify-between items-start mb-4">
@@ -77,7 +77,7 @@ const FindJobs = () => {
                         <div className="mt-6 pt-5 border-t border-gray-50">
                             <Link 
                                 to={`/find-jobs/${job._id}`}
-                                className="w-full flex items-center justify-center gap-2 bg-gray-900 hover:bg-indigo-600 text-white py-3 rounded-2xl font-bold text-sm transition-all active:scale-95 group-hover:shadow-lg group-hover:shadow-indigo-200"
+                                className="w-full flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-600 text-white py-3 font-bold text-sm"
                             >
                                 Job Details <ChevronRight size={16} />
                             </Link>

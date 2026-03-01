@@ -11,7 +11,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:5000/users/${user.email}`)
+      axios.get(`http://localhost:5000/users/email/${user.email}`)
         .then(res => {
           setDbUser(res.data);
         })
@@ -36,8 +36,8 @@ const Navbar = () => {
 
   const NavLinks = (
     <>
+      <a href="/" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Home</a>
       <a href="/find-jobs" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Find Jobs</a>
-      <a href="/companies" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Browse Companies</a>
 
       {user && dbUser?.role === 'admin' && (
         <a href="/jobs-listing" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">
