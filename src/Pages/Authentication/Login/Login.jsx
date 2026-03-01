@@ -21,7 +21,7 @@ const Login = () => {
             const lastLoggedAt = new Date().toISOString();
             const loginInfo = { email, lastLoggedAt };
 
-            const response = await axios.patch('http://localhost:5000/login', loginInfo);
+            const response = await axios.patch('https://quick-hire-backend-rho.vercel.app/login', loginInfo);
 
             if (response.data.modifiedCount > 0 || response.status === 200) {
                 toast.success('Login Successful!');

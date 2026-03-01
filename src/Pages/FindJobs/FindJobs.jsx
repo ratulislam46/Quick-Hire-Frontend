@@ -10,7 +10,7 @@ const FindJobs = () => {
     useEffect(() => {
         const fetchJobs = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/jobs");
+                const res = await axios.get("https://quick-hire-backend-rho.vercel.app/jobs");
                 setJobs(res.data);
             } catch (err) {
                 console.error("Error fetching jobs:", err);

@@ -13,7 +13,7 @@ const Jobs = () => {
     //  API Calls 
     const fetchJobs = useCallback(async () => {
         try {
-            const { data } = await axios.get(`http://localhost:5000/jobs?title=${filterTitle}&category=${filterCategory}`);
+            const { data } = await axios.get(`https://quick-hire-backend-rho.vercel.app/jobs?title=${filterTitle}&category=${filterCategory}`);
             setJobs(data);
         } catch (error) {
             console.error("Error fetching jobs:", error);
@@ -38,7 +38,7 @@ const Jobs = () => {
 
         if (result.isConfirmed) {
             try {
-                const { data } = await axios.delete(`http://localhost:5000/jobs/${id}`);
+                const { data } = await axios.delete(`https://quick-hire-backend-rho.vercel.app/jobs/${id}`);
                 if (data.deletedCount > 0) {
                     Swal.fire("Deleted!", "The job has been deleted.", "success");
                     setJobs(prev => prev.filter(job => job._id !== id));

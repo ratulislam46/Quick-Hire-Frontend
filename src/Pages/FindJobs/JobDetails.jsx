@@ -13,7 +13,7 @@ const JobDetails = () => {
     const [applying, setApplying] = useState(false);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/jobs/${id}`)
+        axios.get(`https://quick-hire-backend-rho.vercel.app/jobs/${id}`)
             .then(res => {
                 setJob(res.data);
                 setLoading(false);
@@ -37,7 +37,7 @@ const JobDetails = () => {
         };
 
         try {
-            const res = await axios.post("http://localhost:5000/job-applications", applicationData);
+            const res = await axios.post("https://quick-hire-backend-rho.vercel.app/job-applications", applicationData);
 
             if (res.data.insertedId) {
                 Swal.fire({

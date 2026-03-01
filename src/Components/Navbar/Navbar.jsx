@@ -12,7 +12,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (user?.email) {
-      axios.get(`http://localhost:5000/users/email/${user.email}`)
+      axios.get(`https://quick-hire-backend-rho.vercel.app/users/email/${user.email}`)
         .then(res => {
           setDbUser(res.data);
         })

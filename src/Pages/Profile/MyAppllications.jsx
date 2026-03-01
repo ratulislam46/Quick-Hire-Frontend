@@ -10,7 +10,7 @@ const MyApplications = ({ userEmail }) => {
     useEffect(() => {
         const fetchApplications = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/job-applications?email=${userEmail}`);
+                const res = await axios.get(`https://quick-hire-backend-rho.vercel.app/job-applications?email=${userEmail}`);
                 setApplications(res.data);
             } catch (error) {
                 console.error("Error fetching applications:", error);

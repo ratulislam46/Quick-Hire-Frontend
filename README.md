@@ -6,8 +6,8 @@ QuickHire is a comprehensive, full-stack job portal platform designed with a min
 
 ## Live Demo
 
-- **Live Link:**  https://quick-hire-job-portal.netlify.app/
-- **Backend API Link:**  https://github.com/ratulislam46/Quick-Hire-Backend
+**Live Site:** [Click Here](https://quick-hire-job-portal.netlify.app/)
+- **Backend API Link:** [Click Here](https://quick-hire-backend-rho.vercel.app)
 
 ---
 
@@ -130,3 +130,10 @@ npm install
 npm run dev
 ```
 ---
+
+## Credentials for Testing
+* **Admin Email**: ratul@gmail.com
+* **Admin Password**: 123456
+
+* **User Email**: anisul@gmail.com
+* **User Password**: 123456

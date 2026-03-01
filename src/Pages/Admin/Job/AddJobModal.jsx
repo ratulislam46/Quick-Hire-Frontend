@@ -25,7 +25,7 @@ const AddJobModal = ({ isOpen, onClose, refreshJobs }) => {
         };
 
         try {
-            const res = await axios.post('http://localhost:5000/jobs', jobData);
+            const res = await axios.post('https://quick-hire-backend-rho.vercel.app/jobs', jobData);
             if (res.data.insertedId) {
                 toast.success('Job Added Successfully!');
                 refreshJobs();

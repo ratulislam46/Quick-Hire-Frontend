@@ -24,7 +24,7 @@ const ExploreByCategory = () => {
     useEffect(() => {
         const fetchCategoryStats = async () => {
             try {
-                const res = await axios.get("http://localhost:5000/jobs");
+                const res = await axios.get("https://quick-hire-backend-rho.vercel.app/jobs");
                 const allJobs = res.data;
 
                 const stats = allJobs.reduce((acc, job) => {

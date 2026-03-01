@@ -13,7 +13,7 @@ const Profile = () => {
         if (!authUser?.email) return;
         try {
             setLoading(true);
-            const res = await axios.get(`http://localhost:5000/users/email/${authUser.email}`);
+            const res = await axios.get(`https://quick-hire-backend-rho.vercel.app/users/email/${authUser.email}`);
             setUserData(res.data);
         } catch (err) {
             console.error("Profile Fetch Error:", err);

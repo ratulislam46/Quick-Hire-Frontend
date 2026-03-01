@@ -33,7 +33,7 @@ const Register = () => {
                 createdAt
             };
 
-            const response = await axios.post('http://localhost:5000/register', newUser);
+            const response = await axios.post('https://quick-hire-backend-rho.vercel.app/register', newUser);
 
             if (response.data.insertedId) {
                 form.reset();
