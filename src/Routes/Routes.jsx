@@ -6,6 +6,8 @@ import Register from "../Pages/Authentication/Register/Register";
 import NotFound from "../Components/NotFound/NotFound";
 import Jobs from "../Pages/Admin/Job/Jobs";
 import Profile from "../Pages/Profile/Profile";
+import FindJobs from "../Pages/FindJobs/FindJobs";
+import JobDetails from "../Pages/FindJobs/JobDetails";
 
 export const router = createBrowserRouter([
     {
@@ -23,6 +25,14 @@ export const router = createBrowserRouter([
             {
                 path: 'profile',
                 Component: Profile
+            },
+            {
+                path: 'find-jobs',
+                Component: FindJobs
+            },
+            {
+                path: 'find-jobs/:id',
+                Component: JobDetails
             }
         ]
     },

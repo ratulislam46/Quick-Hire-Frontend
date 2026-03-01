@@ -36,7 +36,7 @@ const Navbar = () => {
 
   const NavLinks = (
     <>
-      <a href="/" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Find Jobs</a>
+      <a href="/find-jobs" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Find Jobs</a>
       <a href="/companies" className="text-[#515B6F] hover:text-[#4640DE] font-medium transition-colors cursor-pointer">Browse Companies</a>
 
       {user && dbUser?.role === 'admin' && (
