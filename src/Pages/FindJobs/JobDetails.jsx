@@ -4,7 +4,6 @@ import axios from "axios";
 import { Briefcase, Building2, MapPin, Calendar, Send, Loader2 } from "lucide-react";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
-import toast from "react-hot-toast";
 
 const JobDetails = () => {
     const { id } = useParams();
@@ -22,7 +21,6 @@ const JobDetails = () => {
             .catch(err => console.error(err));
     }, [id]);
 
-    console.log(job);
     const handleApply = async (e) => {
         e.preventDefault();
         setApplying(true);
@@ -37,21 +35,25 @@ const JobDetails = () => {
             cover_note: form.cover_note.value,
             applied_at: new Date()
         };
-        console.log(applicationData);
+
         try {
             const res = await axios.post("http://localhost:5000/job-applications", applicationData);
+
             if (res.data.insertedId) {
                 Swal.fire({
                     title: 'Success!',
                     text: 'Your application has been submitted.',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
+                    icon: 'success'
                 });
                 form.reset();
             }
         } catch (error) {
-            // console.error("Application Error:", error);
-            toast.error("Failed to apply. Try again.");
+            const errorMsg = error.response?.data?.message || "Something went wrong!";
+            Swal.fire({
+                title: 'Wait!',
+                text: errorMsg,
+                icon: 'warning'
+            });
         } finally {
             setApplying(false);
         }

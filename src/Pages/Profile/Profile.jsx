@@ -2,6 +2,7 @@ import { useContext, useEffect, useState, useCallback } from "react";
 import { Mail, Calendar, Shield, Clock, User as UserIcon, Loader2, Hash } from "lucide-react";
 import { AuthContext } from "../../Context/AuthProvider";
 import axios from "axios";
+import MyApplications from "./MyAppllications";
 
 const Profile = () => {
     const { user: authUser } = useContext(AuthContext);
@@ -45,8 +46,7 @@ const Profile = () => {
     return (
         <div className="max-w-7xl mx-auto px-4 py-16">
             {/* Profile Header Card */}
-            <div className="bg-white shadow-indigo-100 overflow-hidden border border-gray-100">
-
+            <div className="bg-white shadow-indigo-100 overflow-hidden border border-gray-100 rounded-3xl">
                 {/* Top Banner Accent */}
                 <div className="h-32 bg-linear-to-r from-indigo-600 to-purple-600"></div>
 
@@ -72,7 +72,6 @@ const Profile = () => {
 
                     {/* Details Grid */}
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-
                         <DetailItem
                             icon={<Mail size={20} />}
                             label="Email Address"
@@ -99,13 +98,18 @@ const Profile = () => {
                             label="Last Login"
                             value={new Date(userData.lastLoggedAt).toLocaleString()}
                         />
-
                     </div>
                 </div>
+            </div>
+
+            {/* My Applications Section*/}
+            <div className="mt-12 w-full overflow-hidden">
+                <MyApplications userEmail={authUser?.email} />
             </div>
         </div>
     );
 };
+
 
 // Reusable Detail Component
 const DetailItem = ({ icon, label, value, isCode }) => (

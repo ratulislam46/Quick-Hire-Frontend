@@ -80,7 +80,7 @@ const Navbar = () => {
               <Link
                 onClick={handleLogOut}
                 to="/login"
-                className="font-bold px-6 py-2 transition-all rounded-md cursor-pointer bg-[#4640DE] text-white hover:cursor-pointer" >
+                className="font-bold px-6 py-3 transition-all cursor-pointer bg-[#4640DE] text-white hover:cursor-pointer" >
                 Log out
               </Link>
             ) : (
