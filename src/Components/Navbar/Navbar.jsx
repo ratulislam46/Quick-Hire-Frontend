@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { AuthContext } from '../../Context/AuthProvider';
 import axios from 'axios';
 import { Link } from 'react-router';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +28,7 @@ const Navbar = () => {
     LogOut()
       .then(result => {
         console.log('successfully logout', result);
-        // toast.success('successfully logout');
+        toast.success('Successfully Logout');
       })
       .catch(error => {
         console.log(error);
@@ -61,12 +62,10 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-18 items-center">
 
-          {/* Left: Logo & Navigation Links */}
+          {/* Logo & Navigation Links */}
           <div className="flex items-center gap-12">
             <a href="/" className="flex items-center gap-2 cursor-pointer group">
-              <div className="w-8 h-8 bg-[#4640DE] rounded-full flex items-center justify-center group-hover:bg-[#3b36bc] transition-all">
-                <div className="w-4 h-4 bg-white rounded-full"></div>
-              </div>
+              <img src="/Images/logo.png" alt="logo" />
               <span className="text-xl font-bold text-[#18191C] tracking-tight">QuickHire</span>
             </a>
 

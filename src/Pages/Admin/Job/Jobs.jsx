@@ -10,7 +10,7 @@ const Jobs = () => {
     const [filterTitle, setFilterTitle] = useState('');
     const [filterCategory, setFilterCategory] = useState('All');
 
-    // --- API Calls ---
+    //  API Calls 
     const fetchJobs = useCallback(async () => {
         try {
             const { data } = await axios.get(`http://localhost:5000/jobs?title=${filterTitle}&category=${filterCategory}`);
@@ -24,7 +24,7 @@ const Jobs = () => {
         fetchJobs();
     }, [fetchJobs]);
 
-    // --- Action Handlers ---
+    //  Action Handlers 
     const handleDelete = async (id) => {
         const result = await Swal.fire({
             title: "Are you sure?",
@@ -66,7 +66,7 @@ const Jobs = () => {
         });
     };
 
-    // --- Sub-Render Components ---
+    //  Sub-Render Components 
     const renderFilters = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
             <input

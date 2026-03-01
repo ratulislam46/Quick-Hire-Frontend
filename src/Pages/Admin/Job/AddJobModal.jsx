@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const AddJobModal = ({ isOpen, onClose, refreshJobs }) => {
     const [selectedCategory, setSelectedCategory] = useState("Design");
@@ -26,7 +27,7 @@ const AddJobModal = ({ isOpen, onClose, refreshJobs }) => {
         try {
             const res = await axios.post('http://localhost:5000/jobs', jobData);
             if (res.data.insertedId) {
-                alert('Job Added Successfully!');
+                toast.success('Job Added Successfully!');
                 refreshJobs();
                 onClose();
             }

@@ -4,6 +4,7 @@ import axios from "axios";
 import { Briefcase, Building2, MapPin, Calendar, Send, Loader2 } from "lucide-react";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
     const { id } = useParams();
@@ -49,8 +50,8 @@ const JobDetails = () => {
                 form.reset();
             }
         } catch (error) {
-            console.error("Application Error:", error);
-            alert("Failed to apply. Try again.");
+            // console.error("Application Error:", error);
+            toast.error("Failed to apply. Try again.");
         } finally {
             setApplying(false);
         }

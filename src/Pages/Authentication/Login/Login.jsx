@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const Login = () => {
             const response = await axios.patch('http://localhost:5000/login', loginInfo);
 
             if (response.data.modifiedCount > 0 || response.status === 200) {
-                alert('Login Successful!');
+                toast.success('Login Successful!');
                 form.reset();
                 navigate('/');
             }
@@ -31,9 +32,9 @@ const Login = () => {
         } catch (error) {
             console.error('Login error:', error.message);
             if (error.code === 'auth/invalid-credential') {
-                alert('Invalid Email or Password.');
+                toast.error('Invalid Email or Password.');
             } else {
-                alert(error.message);
+                toast.error(error.message);
             }
         }
     };

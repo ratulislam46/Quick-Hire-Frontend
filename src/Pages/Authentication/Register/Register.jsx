@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Register = () => {
     const { signUp } = useContext(AuthContext);
@@ -16,7 +17,7 @@ const Register = () => {
         const createdAt = new Date().toISOString();
 
         if (password.length < 6) {
-            alert('Password must be at least 6 characters long');
+            toast.error('Password must be at least 6 characters long');
             return;
         }
 
@@ -35,18 +36,18 @@ const Register = () => {
             const response = await axios.post('http://localhost:5000/register', newUser);
 
             if (response.data.insertedId) {
-                alert('Account Created & Saved to DB Successfully!');
                 form.reset();
                 navigate('/')
+                toast.success('Account Created Successfully!');
             }
         } catch (error) {
             console.error('Registration Error:', error.message);
             if (error.code === 'auth/email-already-in-use') {
-                alert('This email is already registered!');
+                toast.error('This email is already registered!');
             } else if (error.code === 'auth/invalid-email') {
-                alert('Please provide a valid email address!');
+                toast.error('Please provide a valid email address!');
             } else {
-                alert(error.message);
+                toast.error(error.message);
             }
         }
     };
