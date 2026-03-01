@@ -32,7 +32,7 @@ const Register = () => {
                 role: 'user',
                 createdAt
             };
-
+ 
             const response = await axios.post('https://quick-hire-backend-rho.vercel.app/register', newUser);
 
             if (response.data.insertedId) {
