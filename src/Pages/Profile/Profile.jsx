@@ -43,9 +43,9 @@ const Profile = () => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-16">
+        <div className="max-w-7xl mx-auto px-4 py-16">
             {/* Profile Header Card */}
-            <div className="bg-white rounded-4xl shadow-2xl shadow-indigo-100 overflow-hidden border border-gray-100">
+            <div className="bg-white shadow-indigo-100 overflow-hidden border border-gray-100">
 
                 {/* Top Banner Accent */}
                 <div className="h-32 bg-linear-to-r from-indigo-600 to-purple-600"></div>
