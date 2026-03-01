@@ -5,7 +5,7 @@ import Login from "../Pages/Authentication/Login/Login";
 import Register from "../Pages/Authentication/Register/Register";
 import NotFound from "../Components/NotFound/NotFound";
 import Jobs from "../Pages/Admin/Job/Jobs";
-import UserProfile from "../Pages/Profile/UserProfile";
+import Profile from "../Pages/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +22,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'profile',
-                Component: UserProfile
+                Component: Profile
             }
         ]
     },
