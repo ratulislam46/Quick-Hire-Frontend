@@ -13,7 +13,7 @@ const CompaniesSection = () => {
     <section className="bg-white py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
-        <p className="text-[#18191C] text-opacity-50 text-base md:text-lg font-medium mb-8 md:mb-10 text-left">
+        <p className="text-gray-400 text-opacity-50 text-base md:text-lg font-medium mb-8 md:mb-10 text-left">
           Companies we helped grow
         </p>
 

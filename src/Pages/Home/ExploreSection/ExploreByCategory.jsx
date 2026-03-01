@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 const ExploreByCategory = () => {
     const [categories, setCategories] = useState([]);
@@ -51,59 +52,102 @@ const ExploreByCategory = () => {
     if (loading) return <div className="flex justify-center py-10"><Loader2 className="animate-spin text-indigo-600" /></div>;
 
     return (
-        <section className="max-w-7xl mx-auto px-6 py-16">
+        <motion.section 
+            className="max-w-7xl mx-auto px-6 py-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+        >
             {/* Header Area */}
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
-                <h2 className="text-4xl md:text-5xl font-black text-[#18191C]">
+            <motion.div 
+                className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+            >
+                <motion.h2 
+                    className="text-4xl md:text-5xl font-black text-[#18191C]"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                >
                     Explore by <span className="text-[#00A3FF]">category</span>
-                </h2>
-                <Link to="/find-jobs" className="text-[#4640DE] font-bold flex items-center gap-2 group hover:underline decoration-2 underline-offset-4">
-                    Show all jobs <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-            </div>
+                </motion.h2>
+                <motion.div
+                    initial={{ opacity: 0, x: 30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
+                >
+                    <Link to="/find-jobs" className="text-[#4640DE] font-bold flex items-center gap-2 group hover:underline decoration-2 underline-offset-4">
+                        Show all jobs <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                </motion.div>
+            </motion.div>
 
             {/* Categories */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            <motion.div 
+                className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+                initial="hidden"
+                animate="visible"
+                variants={{
+                    hidden: { opacity: 0 },
+                    visible: {
+                        opacity: 1,
+                        transition: {
+                            staggerChildren: 0.1
+                        }
+                    }
+                }}
+            >
                 {categories?.map((cat, index) => (
-                    <Link
+                    <motion.div
                         key={index}
-                        to={`/find-jobs?category=${cat.name}`}
-                        className={`group p-6 border border-gray-200 transition-all duration-300 flex flex-row md:flex-col items-center md:items-start justify-between md:justify-start gap-4 
-              ${cat.name === "Marketing"
-                                ? "bg-[#4640DE] text-white border-[#4640DE]"
-                                : "bg-white hover:border-[#4640DE] hover:bg-[#4640DE] hover:shadow-xl"
-                            }`}
+                        variants={{
+                            hidden: { opacity: 0, y: 30 },
+                            visible: { opacity: 1, y: 0 }
+                        }}
+                        transition={{ duration: 0.5 }}
+                        whileHover={{ y: -5, transition: { duration: 0.2 } }}
                     >
-                        {/* Icon Box */}
-                        <div className={`p-3 rounded-lg transition-colors ${cat.name === "Marketing" ? "text-white" : "text-[#4640DE] group-hover:text-white"}`}>
-                            {cat.icon}
-                        </div>
-
-                        {/* Text Area */}
-                        <div className="flex-1 md:mt-4 ">
-                            <div>
-                                <h3 className={`text-xl font-bold leading-tight ${cat.name === "Marketing" ? "text-white" : "text-[#18191C] group-hover:text-white transition-all duration-300"}`}>
-                                    {cat.name}
-                                </h3>
-                                <p className={`text-md mt-1 font-medium ${cat.name === "Marketing" ? "text-white/80" : "text-[#7C8493] group-hover:text-white transition-all duration-300"}`}>
-                                    {cat.count} jobs available
-                                </p>
+                        <Link
+                            to={`/find-jobs?category=${cat.name}`}
+                            className={`group p-6 border border-gray-200 transition-all duration-300 flex flex-row md:flex-col items-center md:items-start justify-between md:justify-start gap-4 
+                  ${cat.name === "Marketing"
+                                    ? "bg-[#4640DE] text-white border-[#4640DE]"
+                                    : "bg-white hover:border-[#4640DE] hover:bg-[#4640DE] hover:shadow-xl"
+                                }`}
+                        >
+                            {/* Icon Box */}
+                            <div className={`p-3 rounded-lg transition-colors ${cat.name === "Marketing" ? "text-white" : "text-[#4640DE] group-hover:text-white"}`}>
+                                {cat.icon}
                             </div>
-                        </div>
 
-                        {/* Arrow (Desktop Only) */}
-                        <div className={`hidden md:block mt-4 self-end transition-transform group-hover:translate-x-1 ${cat.name === "Marketing" ? "text-white" : "text-[#7C8493] group-hover:text-white transition-all duration-300"}`}>
-                            <ArrowRight size={20} />
-                        </div>
+                            {/* Text Area */}
+                            <div className="flex-1 md:mt-4 ">
+                                <div>
+                                    <h3 className={`text-xl font-bold leading-tight ${cat.name === "Marketing" ? "text-white" : "text-[#18191C] group-hover:text-white transition-all duration-300"}`}>
+                                        {cat.name}
+                                    </h3>
+                                    <p className={`text-md mt-1 font-medium ${cat.name === "Marketing" ? "text-white/80" : "text-[#7C8493] group-hover:text-white transition-all duration-300"}`}>
+                                        {cat.count} jobs available
+                                    </p>
+                                </div>
+                            </div>
 
-                        {/* Arrow (Mobile Only) */}
-                        <div className="md:hidden text-[#7C8493]">
-                            <ArrowRight size={24} />
-                        </div>
-                    </Link>
+                            {/* Arrow (Desktop Only) */}
+                            <div className={`hidden md:block mt-4 self-end transition-transform group-hover:translate-x-1 ${cat.name === "Marketing" ? "text-white" : "text-[#7C8493] group-hover:text-white transition-all duration-300"}`}>
+                                <ArrowRight size={20} />
+                            </div>
+
+                            {/* Arrow (Mobile Only) */}
+                            <div className="md:hidden text-[#7C8493]">
+                                <ArrowRight size={24} />
+                            </div>
+                        </Link>
+                    </motion.div>
                 ))}
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     );
 };
 
