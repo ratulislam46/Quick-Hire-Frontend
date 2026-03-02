@@ -7,7 +7,8 @@ QuickHire is a comprehensive, full-stack job portal platform designed with a min
 ## Live Demo
 
 **Live Site:** [Click Here](https://quick-hire-job-portal.netlify.app/)
-- **Backend API Link:** [Click Here](https://quick-hire-backend-rho.vercel.app)
+**Backend Repesitory** [Click Here](https://github.com/ratulislam46/Quick-Hire-Backend)
+**Backend API Link:** [Click Here](https://quick-hire-backend-rho.vercel.app)
 
 ---
 
@@ -27,11 +28,13 @@ QuickHire is a comprehensive, full-stack job portal platform designed with a min
 
 ## Tech Stack
 
-| Frontend      | Backend     | Database | Tools           |
+| Frontend      | Backend     | Database | Tools         |
 |---------------|------------|----------|----------------|
 | React.js      | Node.js    | MongoDB  | Tailwind CSS   |
 | Axios         | Express.js |          | Lucide Icons   |
 | React Router  | REST API   |          | SweetAlert2    |
+| Firebase      |                       | Toast          |
+                                        | Framer Motion  |
 
 ---
 
