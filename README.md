@@ -7,7 +7,7 @@ QuickHire is a comprehensive, full-stack job portal platform designed with a min
 ## Live Demo
 
 - **Live Site:** [Click Here](https://quick-hire-job-portal.netlify.app/)
-- **Backend Repesitory** [Click Here](https://github.com/-ratulislam46/Quick-Hire-Backend)
+- **Backend Repesitory** [Click Here](https://github.com/ratulislam46/Quick-Hire-Backend)
 - **Backend API Link:** [Click Here](https://quick-hire-backend-rho.vercel.app)
 
 ---
